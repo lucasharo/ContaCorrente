@@ -38,16 +38,16 @@ namespace Service.Services
         {
             try
             {
-                var contaCorrenteDebito = _unitOfWork.ContaCorrenteRepository.GetContaCorrenteById(transferenciaDTO.ContaCorrenteDebito);
+                var contaCorrenteOrigem = _unitOfWork.ContaCorrenteRepository.GetContaCorrenteById(transferenciaDTO.ContaCorrenteOrigem);
 
-                if(contaCorrenteDebito == null)
+                if(contaCorrenteOrigem == null)
                 {
                     throw new AppNotFoundException("Conta corrente de origem não encontrada");
                 }
 
-                var contaCorrenteCredito = _unitOfWork.ContaCorrenteRepository.GetContaCorrenteById(transferenciaDTO.ContaCorrenteCredito);
+                var contaCorrenteDestino = _unitOfWork.ContaCorrenteRepository.GetContaCorrenteById(transferenciaDTO.ContaCorrenteDestino);
 
-                if (contaCorrenteCredito == null)
+                if (contaCorrenteDestino == null)
                 {
                     throw new AppNotFoundException("Conta corrente de destino não encontrada");
                 }
@@ -56,7 +56,7 @@ namespace Service.Services
 
                 var lancamentoDebito = new Lancamento
                 {
-                    ContaCorrente = transferenciaDTO.ContaCorrenteDebito,
+                    ContaCorrente = transferenciaDTO.ContaCorrenteOrigem,
                     Valor = transferenciaDTO.Valor,
                     Tipo = 'D',
                     IdTransacao = guid
@@ -66,7 +66,7 @@ namespace Service.Services
 
                 var lancamentoCredito = new Lancamento
                 {
-                    ContaCorrente = transferenciaDTO.ContaCorrenteCredito,
+                    ContaCorrente = transferenciaDTO.ContaCorrenteDestino,
                     Valor = transferenciaDTO.Valor,
                     Tipo = 'C',
                     IdTransacao = guid
@@ -74,13 +74,13 @@ namespace Service.Services
 
                 _unitOfWork.ContaCorrenteRepository.InserirLancamento(lancamentoCredito);
 
-                contaCorrenteDebito.Saldo -= transferenciaDTO.Valor;
+                contaCorrenteOrigem.Debitar(transferenciaDTO.Valor);
 
-                _unitOfWork.ContaCorrenteRepository.AtualizarContaCorrente(contaCorrenteDebito);
+                _unitOfWork.ContaCorrenteRepository.AtualizarContaCorrente(contaCorrenteOrigem);
 
-                contaCorrenteCredito.Saldo += transferenciaDTO.Valor;
+                contaCorrenteDestino.Creditar(transferenciaDTO.Valor);
 
-                _unitOfWork.ContaCorrenteRepository.AtualizarContaCorrente(contaCorrenteCredito);
+                _unitOfWork.ContaCorrenteRepository.AtualizarContaCorrente(contaCorrenteDestino);
 
                 _unitOfWork.Commit();
 

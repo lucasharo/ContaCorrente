@@ -2,8 +2,8 @@
 {
     public class TransferenciaDTO
     {
-        public int ContaCorrenteDebito { get; set; }
-        public int ContaCorrenteCredito { get; set; }
+        public int ContaCorrenteOrigem { get; set; }
+        public int ContaCorrenteDestino { get; set; }
         public decimal Valor { get; set; }
     }
 }

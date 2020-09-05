@@ -38,7 +38,7 @@ namespace XUnitTest
         {
             var contaCorrente = new ContaCorrenteDTO
             {
-                Nome = "Teste 2",
+                Nome = "Teste 3",
                 Saldo = 500000
             };
 
@@ -56,8 +56,8 @@ namespace XUnitTest
         public async Task RealizarTransferenciaTest()
         {
             var tranferencia = new TransferenciaDTO {
-                ContaCorrenteDebito = 3,
-                ContaCorrenteCredito = 4,
+                ContaCorrenteOrigem = 3,
+                ContaCorrenteDestino = 4,
                 Valor = 300
             };
 

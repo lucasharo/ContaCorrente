@@ -4191,19 +4191,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dell\\.nuget\\packages\\": {}
+    "C:\\Users\\k2.lucas\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Workspace\\ContaCorrente\\API\\API.csproj",
+      "projectUniqueName": "C:\\Workspace\\ContaCorrente\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "D:\\Workspace\\ContaCorrente\\API\\API.csproj",
-      "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-      "outputPath": "D:\\Workspace\\ContaCorrente\\API\\obj\\",
+      "projectPath": "C:\\Workspace\\ContaCorrente\\API\\API.csproj",
+      "packagesPath": "C:\\Users\\k2.lucas\\.nuget\\packages\\",
+      "outputPath": "C:\\Workspace\\ContaCorrente\\API\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\k2.lucas\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4211,13 +4215,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.telerik.com/nuget": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "D:\\Workspace\\ContaCorrente\\Service\\Service.csproj": {
-              "projectPath": "D:\\Workspace\\ContaCorrente\\Service\\Service.csproj"
+            "C:\\Workspace\\ContaCorrente\\Service\\Service.csproj": {
+              "projectPath": "C:\\Workspace\\ContaCorrente\\Service\\Service.csproj"
             }
           }
         }
